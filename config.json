@@ -1,0 +1,21 @@
+{
+    "highscore_filename": "scores.json",
+    "levels": [
+        // test dernière clé incorrecte
+        {"width": 21, "height": 21, "seed": 42, "a": "b"},
+        {"width": 21, "seed": 0},
+        {"width": 21, "height": -21, "seed": 689432},
+        {"width": 25, "height": 25, "seed": 454545},
+        {"width": 25, "height": 25, "seed": 45653},
+        {"width": 25, "height": 25, "seed": 138652},
+        {"width": 30, "height": 30, "seed": 123475},
+        {"width": 30, "height": 30, "seed": 48654},
+        {"width": 36, "height": 36, "seed": 45234}
+    ],
+    "lives": -3,
+    "pacgum": 42,
+    "points_per_pacgum": 10,
+    "points_per_super_pacgum": 50,
+    "points_per_ghost": 200,
+    "level_max_time": 900000
+}

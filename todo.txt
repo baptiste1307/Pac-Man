@@ -1,0 +1,2 @@
+height et width doivent toujours être égales?
+Actuellement je permet la creation d'un maze de 200x12 par exemple
