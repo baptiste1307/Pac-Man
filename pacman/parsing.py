@@ -211,4 +211,4 @@ def check_json(config_file_path: Path, config: dict) -> None:
                     f"=> Updated with default value {value["default"]}.\n")
 
     # debug
-    print("\n".join(f"{key}: {value}" for key, value in config.items()))
+    # print("\n".join(f"{key}: {value}" for key, value in config.items()))
