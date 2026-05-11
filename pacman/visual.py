@@ -1,8 +1,6 @@
 import pygame
 from typing import Any
-from maze_generator.mazegenerator.mazegenerator import MazeGenerator
-
-# 1,2,4,8 = north, east, south, west
+from mazegenerator.mazegenerator import MazeGenerator
 
 
 def draw_maze(
@@ -11,17 +9,17 @@ def draw_maze(
         cell_size: int,
         colors: dict[str, Any]) -> None:
 
-    def has_south_and_east_walls(x: int, y: int) -> bool:
-        return ((maze[y][x] & 4) and (maze[y][x] & 2))
+    # def has_south_and_east_walls(x: int, y: int) -> bool:
+    #     return ((maze[y][x] & 4) and (maze[y][x] & 2))
 
-    def has_south_and_west_walls(x: int, y: int) -> bool:
-        return ((maze[y][x] & 4) and (maze[y][x] & 8))
+    # def has_south_and_west_walls(x: int, y: int) -> bool:
+    #     return ((maze[y][x] & 4) and (maze[y][x] & 8))
 
-    def has_north_and_east_wall(x: int, y: int) -> bool:
-        return ((maze[y][x] & 1) and (maze[y][x] & 2))
+    # def has_north_and_east_wall(x: int, y: int) -> bool:
+    #     return ((maze[y][x] & 1) and (maze[y][x] & 2))
 
-    def has_north_and_west_wall(x: int, y: int) -> bool:
-        return ((maze[y][x] & 1) and (maze[y][x] & 8))
+    # def has_north_and_west_wall(x: int, y: int) -> bool:
+    #     return ((maze[y][x] & 1) and (maze[y][x] & 8))
 
     rows = len(maze)
     cols = len(maze[0])
@@ -29,8 +27,13 @@ def draw_maze(
     for y, row in enumerate(maze):
         for x, cell in enumerate(row):
 
-            px = x * cell_size
-            py = y * cell_size
+            # because pygame screen width is (len(maze[0]) * cell_size) + 50,
+            # there are 25px left on each side of the maze
+            offset_x = 25
+            # a bit more space at the top to print scores etc
+            offset_y = 100
+            px = offset_x + x * cell_size
+            py = offset_y + y * cell_size
 
             # top wall
             if cell & 1:
@@ -64,16 +67,16 @@ def draw_maze(
                     (px, py + cell_size),
                     (px + cell_size, py + cell_size), 5)
 
-            if x < cols - 1 and y < cols - 1:
-                # if there's a part of the maze without walls
-                if (not has_south_and_east_walls(x, y)
-                    and not has_south_and_west_walls(x + 1, y)
-                    and not has_north_and_east_wall(x, y + 1)
-                        and not has_north_and_west_wall(x + 1, y)):
-                    pygame.draw.line(
-                        screen, colors["wall_blue"],
-                        (px + cell_size, py + cell_size),
-                        (px + cell_size + 5, py + cell_size), 5)
+            # if x < cols - 1 and y < cols - 1:
+            #     # if there's a part of the maze without walls
+            #     if (not has_south_and_east_walls(x, y)
+            #         and not has_south_and_west_walls(x + 1, y)
+            #         and not has_north_and_east_wall(x, y + 1)
+            #             and not has_north_and_west_wall(x + 1, y)):
+            #         pygame.draw.line(
+            #             screen, colors["wall_blue"],
+            #             (px + cell_size, py + cell_size),
+            #             (px + cell_size + 5, py + cell_size), 5)
 
 
 def main_menu(screen: pygame.Surface, colors: dict[str, Any]) -> None:
@@ -120,7 +123,8 @@ def main_menu(screen: pygame.Surface, colors: dict[str, Any]) -> None:
                     return
 
 
-def init_game(level_1: MazeGenerator) -> None:
+def init_game(level_1: MazeGenerator, cell_size: int) -> None:
+    # 1,2,4,8 = north, east, south, west
 
     colors = {
         "white": (255, 255, 255),
@@ -132,12 +136,10 @@ def init_game(level_1: MazeGenerator) -> None:
         "red": (253, 0, 0),
         "green": (0, 255, 0)
     }
-    cell_size = 32
-
     pygame.init()
 
-    width = len(level_1.maze[0]) * cell_size + 100
-    height = len(level_1.maze) * cell_size + 100
+    width = len(level_1.maze[0]) * cell_size + 50
+    height = len(level_1.maze) * cell_size + 125
 
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Pac-Man")
