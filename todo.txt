@@ -1,4 +1,23 @@
-height et width doivent toujours être égales?
-Actuellement je permet la creation d'un maze de 200x12 par exemple
+définir cases max = 400. et pas taille max. Par exemple, 21x21 bcp plus
+long à générer que 30x10. (400 cases vs 300)
 
-Définir une taille max pour le maze pour ne pas que ça crash
+cases min 180, min 10 height ou width
+
+400 cases très long à générer donc faire en sorte que ca arrive 1 niveau max sur 10
+
+comme min 10 et que max 400 cases, max 40 du coup
+
+
+pour optimiser la vitesse du jeu: 
+
+Générer un niveau une seule fois, puis le conserver en mémoire. Ne jamais régénérer le maze pendant la boucle pygame.
+Pré-générer les niveaux au lancement ou pendant le menu, puis lancer la partie une fois qu’ils sont prêts.
+Afficher un écran “Loading level...” si la génération prend un peu de temps, pour éviter l’impression de freeze.
+
+
+autre probleme:
+
+
+cell_size = 32 parfait sur macbook air mais minuscule sur imac.
+
+==> definir cell_size en fonction de la taille de l'ecran

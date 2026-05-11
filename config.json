@@ -1,16 +1,16 @@
 {
     "highscore_filename": "scores.json",
     "levels": [
-        {"width": 21, "height": 21, "seed": 42, "a": "b"},
-        {"width": 21, "height": 21, "seed": 567832},
-        {"width": 21, "height": 21, "seed": 689432},
-        {"width": 25, "height": 25, "seed": 454545},
-        {"width": 25, "height": 25, "seed": 45653},
-        {"width": 25, "height": 25, "seed": 138652},
-        {"width": 30, "height": 30, "seed": 123475},
-        {"width": 30, "height": 30, "seed": 48654},
-        {"width": 30, "height": 30, "seed": 488654},
-        {"width": 36, "height": 36, "seed": 45234}
+        {"width": 10, "height": 10, "seed": 42},
+        {"width": 13, "height": 13, "seed": 567832},
+        {"width": 13, "height": 13, "seed": 689432},
+        {"width": 13, "height": 13, "seed": 454545},
+        {"width": 13, "height": 13, "seed": 45653},
+        {"width": 13, "height": 13, "seed": 138652},
+        {"width": 17, "height": 17, "seed": 123475},
+        {"width": 17, "height": 17, "seed": 48654},
+        {"width": 17, "height": 17, "seed": 488654},
+        {"width": 21, "height": 21, "seed": 45234}
     ],
     "lives": 3,
     "pacgum": 42,
