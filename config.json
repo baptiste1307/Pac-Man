@@ -1,7 +1,7 @@
 {
     "highscore_filename": "scores.json",
     "levels": [
-        {"width": 10, "height": 10, "seed": 42},
+        {"width": 13, "height": 13, "seed": 42},
         {"width": 13, "height": 13, "seed": 567832},
         {"width": 13, "height": 13, "seed": 689432},
         {"width": 13, "height": 13, "seed": 454545},
@@ -10,7 +10,7 @@
         {"width": 17, "height": 17, "seed": 123475},
         {"width": 17, "height": 17, "seed": 48654},
         {"width": 17, "height": 17, "seed": 488654},
-        {"width": 21, "height": 21, "seed": 45234}
+        {"width": 20, "height": 20, "seed": 45234}
     ],
     "lives": 3,
     "pacgum": 42,
