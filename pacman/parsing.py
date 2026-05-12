@@ -72,17 +72,15 @@ def load_json_with_comments(path: Path) -> dict[str, Any]:
 
 
 def check_json(config_file_path: Path,
-               config: dict[str, Any],
-               cell_size: int) -> None:
+               config: dict[str, Any]) -> None:
 
-    default_width = 21
-    default_height = 21
+    default_size = 13
     default_seed = 42
     default_config_keys = {
         "highscore_filename": {"count": 0, "default": "scores.json"},
         "levels": {"count": 0, "default": [{
-            "height": default_height,
-            "width": default_width
+            "height": default_size,
+            "width": default_size
             }]
         },
         "lives": {"count": 0, "default": 3},
@@ -114,14 +112,11 @@ def check_json(config_file_path: Path,
                 continue
             check_levels_key(config,
                              config_file_path,
-                             default_height,
-                             default_width,
-                             default_seed,
-                             cell_size)
+                             default_size,
+                             default_seed)
 
     # checks if a mandatory key from default_config_keys is missing in config
     check_missing_mandatory_key(default_config_keys,
                                 config,
-                                default_height,
-                                default_width,
+                                default_size,
                                 config_file_path)
