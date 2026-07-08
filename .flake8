@@ -1,0 +1,11 @@
+[flake8]
+exclude =
+    .git,
+    .mypy_cache,
+    .pytest_cache,
+    .venv,
+    venv,
+    __pycache__,
+    mazegenerator,
+    mazegenerator-*.dist-info
+max-line-length = 79

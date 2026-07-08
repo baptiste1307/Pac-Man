@@ -1,1 +1,0 @@
-cases min 169, cases max 400, min 10, max 20 à mettre dans readme

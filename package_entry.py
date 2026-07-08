@@ -1,12 +1,21 @@
 import sys
+from pathlib import Path
+
 from pacman.config import Parser
 from pacman.engine import GameEngine
 from pacman.errors import format_exception_error
 
 
 def main() -> None:
-    """Parse the config file argument and launch the game engine."""
+    """Launch the packaged game with its bundled default config file."""
     try:
+        base_dir = Path(
+            getattr(sys, "_MEIPASS", Path(__file__).resolve().parent)
+        )
+
+        if len(sys.argv) == 1:
+            sys.argv.append(str(base_dir / "config.json"))
+
         engine = GameEngine()
         parser = Parser()
         parser.parser_main(sys.argv)

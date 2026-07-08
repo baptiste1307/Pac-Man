@@ -1,0 +1,71 @@
+_____________________________________________________________________________________________
+
+To-do:
+_____________________________________________________________________________________________
+
+-----------------------------
+mis-a-jour 02/07, 03/07     |
+-----------------------------
+
+5.6 Custom app icon
+5.7 Add to readme https://bpasquer.itch.io/pacman-42 (only available on MACOS for the moment)
+
+_____________________________________________________________________________________________
+
+Done:
+_____________________________________________________________________________________________
+
+
+2.2. start playing: idealy pac-man stays and wait for keyborad input.
+2.1. go_back button in play page doesn't work.
+0.8. 42 in maze are not filled. (Play_visual.py L323 --> "if cell == 15")
+0.3. the timer go to negative when the countdown is finished => now it is reset to 0 and lives -= 1
+0.1. Next button - Error: list index out of range after the last level. (after level 10)
+1.4. add new next_level button, deleted old draw_next_button.
+2.1. go_back button in play page doesn't work. => works now OK
+3.1 [instruction] Points according to config.txt in Page_instruction. => OK
+4.1. Logic for loading page to play page. => ABORT, now the map loads one by one, no more need to wait.
+4.3. Volume bar => OK
+3.0. If rectangular maze, center it on black screen => OK
+0.7. When clicking "exit" in main page, I got "Error: video system not initialized make: *** [run] Error 1" => resolved2.6. When pac-man is eaten or time's up, show "game_over" sign. => OK
+0.6. Global variables are found in visual, is it allowed? do we merge them? => no info in subject
+0.4. Maps loading can be long --> we can't do anything, a-maze-ing package is sh*t...
+--> but we can display a nice progress bar as you said => planning abort, no need for loading page but a loading element.
+0.2. lives go to negative when the countdown is finished. => we stil need to handle game over (game_engine.py L88)
+--> print a cool "game over" design on screen, enter name for scores table then go to main menu => done
+1.3. add good_job (when all pacgums are eaten) and game_over(when time's up or pacman is eaten by ghost) according to game result. => OK
+2.3. Ghosts movement: Finding shortest path between ghost and pacman, and ghost moves towards pacman. The level can be set based on ghost's speed. => OK
+2.6. When pac-man is eaten or time's up, show "game_over" sign. => OK
+1.2. add a waiting(loading page) while the program is loading the maps(now is pure black screen). => Same as 0.4
+5. Ghosts movement: 
+    Blinky -> position actuelle de Pacman
+    Pinky -> 3 ou 4 cases devant Pacman
+    Inky -> calcul un peu plus bizarre ou semi-aléatoire
+    Clyde -> Pacman si loin, coin de départ si proche
+    1.5. Ghosts movement
+
+2.4. Super-pacgums eaten, the game in status: ghost_vulnerable? ghosts start to move away from pacman, and can be eaten, for 5 seconds?
+2.5. When all pacgums are eaten, show "good_job" sign. [rect(571, 371, 537, 537)]
+3.1 if pacman touched by a ghost, respawn on center of the map, and the ghost respwan on his corner
+4.6. After GAMEOVER, start should restart new games.
+5.1 Draw_good_job and draw_game_over: elements of the page needs to be centered (currently their 
+coordinates are harcoded ==> bad design practice and awful for screen adaptation)
+Currently, on macbook, only good job img is visible (moving ghosts and other stuff is outside the screen) => OK
+4.9. When LEVEL10 Finish, do not draw_loading_pacman => OK
+4.2. Loading animation => OK
+0.5. make run should depend on make install, but the .whl will be unzipped again. => OK
+2.8. Add sound system. => OK
+
+-- UPDATE 05/07 bpasquer --
+
+6.1. Ghosts: Respawn to their corner after a while when eaten (not immediately) => OK
+6.2. During the game, the player can pause and resume the game => OK
+5.4. When the last pacgum eaten is a super pacgum, there is no goodjob page. (otherwise, goodjob works normally). => OK
+5.2. Level 10 Error (when it's finished normally, error: Error (core/game_state.py, line 24): list index out of range), However, when it's not played, the level 10 is good. => OK
+4.5. Cheat-Mode (eg. Pause all ghosts / Remove all pacgums - success direct etc.) => OK
+
+6.3. When the game's over, the final score is displayed. => OK
+6.4. The instruction takes directly from scores.json => OK
+4.4. Project Management + README => 
+2.7. After "game_over" sign, if the "score" is made in top 10 of the history, pop page type_name for name registration. => OK
+5.5. Add super pac man sound => OK

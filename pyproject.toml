@@ -1,0 +1,51 @@
+[project]
+name = "pac-man"
+version = "0.1.0"
+description = "packages needed for the pac-man project"
+requires-python = ">=3.10"
+
+dependencies = [
+    "pydantic",
+    "numpy",
+    "mypy",
+    "flake8",
+    "pygame-ce",
+    "black>=26.5.1",
+    "pyinstaller>=6.21.0",
+]
+
+[tool.black]
+line-length = 79
+
+[tool.mypy]
+exclude = [
+    "^\\.venv/",
+    "^venv/",
+    "^mazegenerator/",
+    "^mazegenerator-.*\\.dist-info/",
+    "^resize_test\\.py$",
+]
+disable_error_code = [
+    "attr-defined",
+    "assignment",
+    "arg-type",
+    "has-type",
+    "index",
+    "misc",
+    "no-any-return",
+    "operator",
+    "return-value",
+]
+
+[tool.flake8]
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "mazegenerator",
+    "mazegenerator-*.dist-info",
+]
+max-line-length = 79

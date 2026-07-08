@@ -1,0 +1,73 @@
+MACOS:
+
+1.
+
+rm -rf build dist PacMan.spec
+
+2.
+
+uv run pyinstaller \
+  --windowed \
+  --icon=img/app_icon_42.icns \
+  --name PacMan \
+  --hidden-import mazegenerator \
+  --hidden-import mazegenerator.mazegenerator \
+  --add-data "config.json:." \
+  --add-data "img:img" \
+  --add-data "sounds:sounds" \
+  --add-data "fonts:fonts" \
+  --add-data "assets:assets" \
+  package_entry.py
+
+3.
+
+cd dist
+ditto -c -k --sequesterRsrc --keepParent PacMan.app PacMan-mac.zip
+cd ..
+
+==> we should get dist/PacMan-mac.zip
+
+test:
+open dist/PacMan-mac.zip
+
+
+LINUX:
+
+Important:
+You must run these commands on Linux.
+PyInstaller should build the app on the same OS as the target platform.
+
+1.
+
+rm -rf build dist PacMan.spec
+
+2.
+
+uv run pyinstaller \
+  --windowed \
+  --icon=img/app_icon_42.png \
+  --name PacMan \
+  --hidden-import mazegenerator \
+  --hidden-import mazegenerator.mazegenerator \
+  --add-data "config.json:." \
+  --add-data "img:img" \
+  --add-data "sounds:sounds" \
+  --add-data "fonts:fonts" \
+  --add-data "assets:assets" \
+  package_entry.py
+
+3.
+
+put assets, fonts, img and sounds folders outside _internal
+
+4.
+
+cd dist
+zip -qr PacMan-linux.zip PacMan
+cd ..
+
+==> we should get dist/PacMan-linux.zip
+
+test:
+cd dist/PacMan
+./PacMan
